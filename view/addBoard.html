@@ -1,0 +1,18 @@
+<form name='addBoard'>
+	<div>
+		<label for='boardName'>Enter a board name</label></br>
+		<textarea id='boardName' ng-model='board.name'></textarea>
+		
+	</div>
+	<div>
+		<label for='boardDescription'>a brief description of the chat boards issues </label></br>
+		<textarea id='boardDescription' ng-model='board.description'></textarea>
+	</div>	
+	<div>
+		<label for='boardOwner'>Enter your nickname</label></br>
+		<textarea id='boardOwner' ng-model='board.owner'></textarea>
+	</div>
+
+	<button ng-click='cancel()'>Cancel</button>
+	<button ng-click='createBoard()' ng-diabled='!board.name'>Create Chat</button>
+</form>

@@ -1,0 +1,8 @@
+<ul>
+	<li ng-repeat='board in boards | orderBy:"name"'>
+		<h2><a href="#/board/{{board.id}}">{{board.name}}</a></h2>
+		<p>A brief descriptionf of the boards issues: {{board.description}}</p>
+		<p>The chat board owner is: {{board.owner}}</p>
+	</li>
+	<a href="#/addBoard">Create board</a> <!-- á eftir að finna út úr þessu -->
+</ul>
