@@ -12,7 +12,7 @@ Chat.controller ('BoardController', function ($scope, $location, $routeParams, B
 Chat.controller ('AddBoardController', function ($scope, $location, $routeParams, BoardModel) {
 	var boardId = $routeParams.boardId;
 	$scope.cancel = function () {
-		$location.path('/board/'); // skil afhverju þetta virkar ekki! - 11.03 SIK
+		$location.path('/board/');
 	}
 
 	$scope.createBoard = function () {
