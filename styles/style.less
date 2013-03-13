@@ -1,0 +1,158 @@
+/**
+ * @date 13.03.2013
+ * @version 1.1
+ * @author Hilmar Kári Hallbjörnsson
+ *
+ */
+
+@import url(reset.less);
+@import url(resources.less);
+
+body{
+	background-color: @background-color;
+	margin: 30px;
+	font-family: Garamond;
+	font-size: 16px;
+
+	h1{
+		color: white;
+	}
+}
+
+section.chatboard{
+	border: 2px solid black;
+	padding: 5px;
+	width: 820px;
+	height: 500px;
+	background-color: @background-light-green;
+
+	h1{
+		color: black;
+	}
+
+	.chatboard-wrapper{
+		margin: 10px;
+		float: left;
+
+		.chat-messages{
+			font-size: 18/16em;
+			width: 590px;
+			height: 400px;
+			background-color: white;
+			border: 1px solid black;
+			margin-bottom: 3px;
+
+
+			li{
+				padding: 0 0 3px 5px;
+			}
+		}
+
+		.chat-input{
+			width: 586px;
+			border: 1px solid black;
+			padding: 2px;
+
+			input{
+				width: 465px;
+				margin-left: 5px;
+				margin-right: 20px;
+			}
+		}
+	}
+
+	aside{
+		font-size: 18/16em;
+		width: 200px;
+		float: left;
+		margin-top: 10px;
+		background-color: @background-userlist-color;
+		border: 1px solid black;
+		ul{
+			li{
+				padding-left: 5px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+			}
+		}
+	}
+
+	.admin{
+		background-color: @admin-color;
+	}
+
+	.admin:before{
+		content: '@ ';
+	}
+
+	.me{
+		background-color: orange;
+	}
+}
+
+section.chatboards{
+	ul{
+		li{
+			width: 700px;
+			padding: 10px;
+		}
+
+		li:nth-of-type(odd){
+			background-color: lime;
+		}
+	}
+
+	a.button{
+		margin-top: 20px;
+		display: block;
+		width: 120px;
+	}
+}
+
+/**
+ * GLOBAL STYLES
+ */
+h1{
+	margin-bottom: 10px;
+}
+
+.button{
+	padding: 10px;
+	.border-radius(10px 10px 10px 10px);
+	background-color: white;
+	font-family: Verdana;
+	font-style: bold;
+	font-size: 18/16em;	
+}
+
+input{
+	.box-shadow(3px 3px 2px rgba(0,0,0,.5));
+	font-size: 20/16em;
+}
+
+a, a:hover, a:visited{
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Large desktop */
+@media (min-width: 1200px) {}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {}

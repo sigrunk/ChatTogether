@@ -1,0 +1,10 @@
+<section class="chatboards">
+	<ul>
+		<li class="board" ng-repeat='board in boards | orderBy:"name"'>
+			<h2><a href="#/board/{{board.id}}">{{board.name}}</a></h2>
+			<p>A brief descriptionf of the boards issues: {{board.description}}</p>
+			<p>The chat board owner is: {{board.owner}}</p>
+		</li>
+		<a class="button" href="#/addBoard">Create board</a> 
+	</ul>
+</section>

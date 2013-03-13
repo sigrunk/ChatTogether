@@ -11,6 +11,18 @@ Chat.service('BoardModel', function () {
 			name: 'school chat', 
 			description: 'all about the school', 
 			owner: 'ari'
+		},
+		{ 
+			id: 2, 
+			name: 'school chat 2', 
+			description: 'all about the school', 
+			owner: 'ari'
+		},
+		{ 
+			id: 3, 
+			name: 'school chat 3', 
+			description: 'all about the school', 
+			owner: 'ari'
 		}]
 	}
 

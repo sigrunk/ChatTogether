@@ -1,0 +1,291 @@
+/** - - - - - - - - [ COLORS ] - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+	@color-text:		rgb(0,0,0);
+	@color-form-text:	rgb(100,100,100);
+	@color-select:		rgb(200,200,200);
+
+	@background-color: green;
+	@background-light-green: lime;
+	@background-userlist-color: #bbb;
+	@admin-color: #999;
+	@me-color: orange;
+
+
+
+
+
+
+
+/** - - - - - - - - [ MIXINS ] - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+
+	/**
+	 * BORDER-RADIUS
+	 */
+	.border-radius(@radius:5px){
+		-webkit-border-radius: @radius;
+		   -moz-border-radius: @radius;
+		    -ms-border-radius: @radius;
+		     -o-border-radius: @radius;
+		        border-radius: @radius;		
+	}
+	.border-radius( @ns, @ew ){
+		-webkit-border-radius: @ns @ew;
+		   -moz-border-radius: @ns @ew;
+		    -ms-border-radius: @ns @ew;
+		     -o-border-radius: @ns @ew;
+		        border-radius: @ns @ew;
+	}
+	.border-radius( @n,@e,@s,@w ){
+		-webkit-border-radius: @n @e @s @w;
+		   -moz-border-radius: @n @e @s @w;
+		    -ms-border-radius: @n @e @s @w;
+		     -o-border-radius: @n @e @s @w;
+		        border-radius: @n @e @s @w;
+	}
+
+
+
+	/**
+	 * CENTER-BLOCK
+	 */
+	.center-block() {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+
+
+	/**
+	 * PLACEHOLDER-TEXT
+	 */
+	.placeholder(@color: @color-form-text) {
+	  &:-moz-placeholder {
+	    color: @color;
+	  }
+	  &:-ms-input-placeholder {
+	    color: @color;
+	  }
+	  &::-webkit-input-placeholder {
+	    color: @color;
+	  }
+	}
+
+
+
+
+	/**
+	 * IMAGE-REPLACEMENT
+	 * https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+	 *
+	 * This mixin will set the element to display:block; You can always
+	 * overwrite this... what you have to set manually is 
+	 * height:Xpx; and width:Xpx;
+	 */
+	.image-replace( @url, @color: transparent, @x:0, @y:0 ) {
+		background: @url @color no-repeat @x @y;
+		font: 0/0 a;
+		color: transparent;
+		text-shadow: none;
+		background-color: transparent;
+		border: 0;
+		display: block;
+	}
+
+
+	/**
+	 * DROP-SHADOW
+	 */
+	.box-shadow(@shadowA, @shadowB:X, ...){
+	  // Multiple shadow solution from http://toekneestuck.com/blog/2012/05/15/less-css-arguments-variable/
+	  @props: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	  -webkit-box-shadow: @props;
+	     -moz-box-shadow: @props;
+	          box-shadow: @props;
+	}
+
+	// Transitions
+	.transition(@transition) {
+	  -webkit-transition: @transition;
+	     -moz-transition: @transition;
+	       -o-transition: @transition;
+	          transition: @transition;
+	}
+	.transition-delay(@transition-delay) {
+	  -webkit-transition-delay: @transition-delay;
+	     -moz-transition-delay: @transition-delay;
+	       -o-transition-delay: @transition-delay;
+	          transition-delay: @transition-delay;
+	}
+
+	// Transformations
+	.rotate(@degrees) {
+	  -webkit-transform: rotate(@degrees);
+	     -moz-transform: rotate(@degrees);
+	      -ms-transform: rotate(@degrees);
+	       -o-transform: rotate(@degrees);
+	          transform: rotate(@degrees);
+	}
+	.scale(@ratio) {
+	  -webkit-transform: scale(@ratio);
+	     -moz-transform: scale(@ratio);
+	      -ms-transform: scale(@ratio);
+	       -o-transform: scale(@ratio);
+	          transform: scale(@ratio);
+	}
+	.translate(@x, @y) {
+	  -webkit-transform: translate(@x, @y);
+	     -moz-transform: translate(@x, @y);
+	      -ms-transform: translate(@x, @y);
+	       -o-transform: translate(@x, @y);
+	          transform: translate(@x, @y);
+	}
+	.skew(@x, @y) {
+	  -webkit-transform: skew(@x, @y);
+	     -moz-transform: skew(@x, @y);
+	      -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twitter/bootstrap/issues/4885
+	       -o-transform: skew(@x, @y);
+	          transform: skew(@x, @y);
+	}
+	.translate3d(@x, @y, @z) {
+	  -webkit-transform: translate3d(@x, @y, @z);
+	     -moz-transform: translate3d(@x, @y, @z);
+	       -o-transform: translate3d(@x, @y, @z);
+	          transform: translate3d(@x, @y, @z);
+	}
+
+	// Background sizing
+	.background-size(@size){
+	  -webkit-background-size: @size;
+	     -moz-background-size: @size;
+	       -o-background-size: @size;
+	          background-size: @size;
+	}
+
+	// For selecting text on the page
+	.user-select(@color-select) {
+	  -webkit-user-select: @select;
+	     -moz-user-select: @select;
+	      -ms-user-select: @select;
+	       -o-user-select: @select;
+	          user-select: @select;
+	}
+
+
+	// Opacity
+	.opacity(@opacity) {
+	  opacity: @opacity / 100;
+	  filter: ~"alpha(opacity=@{opacity})";
+	}
+
+
+	.gradient(@startColor: #555, @endColor: #333, @direction:top) {
+           background-color: @endColor;
+           background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+/
+           background-image: -webkit-linear-gradient(@direction, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+           background-image:    -moz-linear-gradient(@direction, @startColor, @endColor); // FF 3.6+
+           background-image:      -o-linear-gradient(@direction, @startColor, @endColor); // Opera 11.10
+           /*background-image:         linear-gradient(to right, @startColor, @endColor); // Standard, IE10 */
+           background-repeat: repeat-x;
+           filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@startColor),argb(@endColor))); // IE9 and down
+         }
+
+/**
+ * Image filters 
+ * @author Hilmar Kári Hallbjörnsson
+ */
+	/*Grayscale*/
+	/*Tekur inn einn parameter, double, á range-inu 0-1*/
+	.grayscale(@value: 0){
+		-webkit-filter: grayscale(@value);
+		   -moz-filter: grayscale(@value);
+		    -ms-filter: grayscale(@value);
+		     -o-filter: grayscale(@value);
+		        filter: grayscale(@value);
+	}
+
+	/*Sepia*/
+	/*Tekur inn einn parameter, double, á range-inu 0-1*/
+	.sepia(@value: 0){
+		-webkit-filter: sepia(@value);
+		   -moz-filter: sepia(@value);
+		    -ms-filter: sepia(@value);
+		     -o-filter: sepia(@value);
+		        filter: sepia(@value);
+	}
+
+	/*Saturate*/
+	/*Tekur inn einn parameter, double, á range-inu 0-1*/
+	.saturate(@value: 1){
+		-webkit-filter: saturate(@value);
+		   -moz-filter: saturate(@value);
+		    -ms-filter: saturate(@value);
+		     -o-filter: saturate(@value);
+		        filter: saturate(@value);
+	}
+
+	/*Hue Rotate*/
+	/*Tekur inn einn parameter, streng, á range-inu 0-360deg sem eru gráðurnar sem hue-inu er snúið*/
+	.hue-rotate(@value: 0deg){
+		-webkit-filter: hue-rotate(@value);
+		   -moz-filter: hue-rotate(@value);
+		    -ms-filter: hue-rotate(@value);
+		     -o-filter: hue-rotate(@value);
+		        filter: hue-rotate(@value);
+	}
+
+	/*Invert*/
+	/*Tekur inn einn parameter, double, á range-inu 0-1*/
+	.invert(@value: 0){
+		-webkit-filter: invert(@value);
+		   -moz-filter: invert(@value);
+		    -ms-filter: invert(@value);
+		     -o-filter: invert(@value);
+		        filter: invert(@value);
+	}
+
+	/*Opacity*/
+	/*Tekur inn einn parameter, double, á range-inu 0-1*/
+	.opacity(@value: 1){
+		-webkit-filter: opacity(@value);
+		   -moz-filter: opacity(@value);
+		    -ms-filter: opacity(@value);
+		     -o-filter: opacity(@value);
+		        filter: opacity(@value);
+	}
+
+	/*Brightness*/
+	/*Tekur inn einn parameter, double, á range-inu 0-1*/
+	.brightness(@value: 0){
+		-webkit-filter: brightness(@value);
+		   -moz-filter: brightness(@value);
+		    -ms-filter: brightness(@value);
+		     -o-filter: brightness(@value);
+		        filter: brightness(@value);
+	}
+
+	/*Contrast*/
+	/*Tekur inn einn parameter, double, á range-inu 0-2, þar sem 1 er "venjulegt" eða default */
+	.contrast(@value: 1){
+		-webkit-filter: contrast(@value);
+		   -moz-filter: contrast(@value);
+		    -ms-filter: contrast(@value);
+		     -o-filter: contrast(@value);
+		        filter: contrast(@value);
+	}
+
+	/*Blur*/
+	/*Tekur inn einn parameter, streng, á range-inu 0px-10px.  Hugsanlega er hægt að fara hærra.*/
+	.blur(@value: 0px){
+		-webkit-filter: blur(@value);
+		   -moz-filter: blur(@value);
+		    -ms-filter: blur(@value);
+		     -o-filter: blur(@value);
+		        filter: blur(@value);
+	}
+
+
+
+
+
+
+

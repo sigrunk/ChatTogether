@@ -1,8 +1,28 @@
-<ul>
-	<li ng-repeat='board in boards | orderBy:"name"'>
-		<h2><a href="#/board/{{board.id}}">{{board.name}}</a></h2>
-		<p>A brief descriptionf of the boards issues: {{board.description}}</p>
-		<p>The chat board owner is: {{board.owner}}</p>
-	</li>
-	<a href="#/addBoard">Create board</a> 
-</ul>
+<section class="chatboard">
+    <h1>{{board.name}}</h1>
+    <div class="chatboard-wrapper">
+    	<ul class="chat-messages">
+    		<li class="me">Gummi:  Lína 1 af texta</li>
+    		<li>Stebbi:  Lína 2 af texta</li>
+    		<li class="admin">Siggi:  Lína 3 af texta</li>
+    		<li class="me">Gummi:  Lína 4 af texta</li>
+    		<li class="me">Gummi:  Lína 5 af texta</li>
+    		<li>Sigga:  Lína 6 af texta</li>
+    		<li class="admin">Siggi:  Lína 7 af texta</li>
+    		<li>Bjarni:  Lína 8 af texta</li>
+    	</ul>
+        <div class="chat-input">
+            <input type="text" id="text-input" name="text-input" />
+            <button class="button chat-submit">Spjalla</button>
+        </div>
+    </div>
+    <aside>
+    	<ul class="user-list">
+    		<li class="admin">Siggi</li>
+    		<li>Bjarni</li>
+    		<li class="me">Gummi</li>
+    		<li>Sigga</li>
+    		<li>Siggi</li>
+    	<ul>
+    </aside>
+</section>
