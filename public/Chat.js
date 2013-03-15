@@ -2,7 +2,7 @@ var chatConfig = function  ($routeProvider) {
 	$routeProvider.when('/home', {
 		controller: 'UserController', templateUrl: 'view/chooseNickname.html'
 	}).when('/board', {
-		controller: 'BoardController', templateUrl: 'view/boards.html'
+		controller: 'BoardsController', templateUrl: 'view/boards.html'
 	}).when('/board/:boardId', {
 		controller: 'BoardController', templateUrl: 'view/board.html'
 	}).when('/addBoard', {

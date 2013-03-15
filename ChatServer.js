@@ -7,7 +7,7 @@ var globalData = {
     rooms: [ {name: "FirstRoom",
               users: ["dabs"],
               messages: [] } ],
-    userNames: {}
+    userNames: []
 };
 
 server.listen(8080);
@@ -28,14 +28,14 @@ app.configure(function(){
 
 io.sockets.on('connection', function (socket) {
     socket.on('createUser', function (data) {
+
         var username = data.user;
         var found = false;
-        for(var i=0; i<globalData.userNames.length; i++) {
-            if (globalData.userNames[i] == data.user){
-                found = true;
-                break;
-            }
-        }
+        globalData.userNames.forEach(function(item, index, collection){
+          if(item.user == username){
+            found = true;
+          }
+        });
 
         if( found ){
             socket.emit('validateUser', false);
@@ -43,11 +43,15 @@ io.sockets.on('connection', function (socket) {
         }
         else{
 
-            globalData.userNames[data.user]
+            globalData.userNames.push({user: data.user});
             socket.emit('validateUser', true);
             console.log('Added ' + data.user + ' to the mix');
         }
-            
+    });
+
+    socket.on('getUsers', function(){
+      console.log("Vei, það var kallað á mig!");
+      socket.emit('userList', globalData.userNames );
     });
 });
 

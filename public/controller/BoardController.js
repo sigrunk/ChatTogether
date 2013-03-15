@@ -1,4 +1,4 @@
-Chat.controller ('BoardController', function ($scope, $location, $routeParams, BoardModel) {
+Chat.controller ('BoardsController', function ($scope, $location, $routeParams, BoardModel ) {
 	var boards = BoardModel.getBoards();
 	/* spurning hvort við forlykkju til að ná bara í lista af borðum en ekki chatinu sem er inn á þeim.
 	for (var i = 0; i < boards.length; i++) {
@@ -11,6 +11,7 @@ Chat.controller ('BoardController', function ($scope, $location, $routeParams, B
 
 Chat.controller ('AddBoardController', function ($scope, $location, $routeParams, BoardModel) {
 	var boardId = $routeParams.boardId;
+
 	$scope.cancel = function () {
 		$location.path('/board/');
 	}
@@ -21,4 +22,7 @@ Chat.controller ('AddBoardController', function ($scope, $location, $routeParams
 	}
 });
 
-
+Chat.controller('BoardController', function ($scope, $location, $routeParams, UserModel ){
+	var users = UserModel.getUsers();
+	console.log(users);
+});
