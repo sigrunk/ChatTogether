@@ -6,13 +6,15 @@ Chat.controller('UserController', function ($scope, $location, $routeParams, Use
 		socket.on('validateUser', function(data){
 			console.log(data);
 			if(data){
-				$location.path('/board/');
 				console.log("Gat stofnað notanda: " + $scope.user.name);
 			}
 				
 			else{
 				console.log('Notendanafn þegar til!' + $scope.user.name);
+				$location.path('/home/');
 			}
 		});
+
+		$location.path('/board/');
 	}
 });
