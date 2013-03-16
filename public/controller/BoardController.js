@@ -22,7 +22,7 @@ Chat.controller ('AddBoardController', function ($scope, $location, $routeParams
 	}
 });
 
-Chat.controller('BoardController', function ($scope, $location, $routeParams, UserModel ){
-	var users = UserModel.getUsers();
-	console.log(users);
+Chat.controller('BoardController', function ($scope, $location, $routeParams, BoardModel, UserModel ){
+	$scope.boards = BoardModel.getBoards();
+	$scope.userList = UserModel.getUsers();
 });

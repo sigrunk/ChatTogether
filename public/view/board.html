@@ -17,12 +17,8 @@
         </div>
     </div>
     <aside>
-    	<ul class="user-list">
-    		<li class="admin">Siggi</li>
-    		<li>Bjarni</li>
-    		<li class="me">Gummi</li>
-    		<li>Sigga</li>
-    		<li>Siggi</li>
+    	<ul class="user-list" ng-repeat='user in userList'>
+    		<li>{{user.user}}</li>
     	<ul>
     </aside>
 </section>

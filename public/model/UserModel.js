@@ -14,9 +14,8 @@ Chat.service('UserModel', function () {
 		socket.on('userList', function(data){
 			userList = data;
 			console.log(data);
-			return userList;
 		});
 
-		
+		return userList;
 	}
 });

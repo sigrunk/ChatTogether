@@ -31,8 +31,12 @@ io.sockets.on('connection', function (socket) {
 
         var username = data.user;
         var found = false;
+
+        console.log("Checking for username: " + data.user);
+
         globalData.userNames.forEach(function(item, index, collection){
           if(item.user == username){
+
             found = true;
           }
         });
