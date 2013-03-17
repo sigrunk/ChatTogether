@@ -9,5 +9,5 @@ var chatConfig = function  ($routeProvider) {
 		controller: 'AddBoardController', templateUrl: 'view/addBoard.html'
 	}).otherwise( { redirectTo: '/home'} );
 };
-var ChatServer = angular.module('Chat', []).config(chatConfig);
+var Chat = angular.module('Chat', []).config(chatConfig);
 var socket = io.connect('http://localhost');
