@@ -12,7 +12,7 @@ var globalData = {
 
 server.listen(8080);
 
-
+io.set('log level', 2);
 
 /* Til að servera statísku contenti */
 app.configure(function(){
